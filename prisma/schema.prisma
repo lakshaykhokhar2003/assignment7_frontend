@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Orders {
+  id               Int               @id @default(autoincrement())
+  orderDescription String            @db.VarChar(100)
+  createdAt        DateTime          @default(now())
+  orderProductMap  OrderProductMap[]
+}
+
+model Products {
+  id                 Int               @id
+  productName        String            @db.VarChar(100)
+  productDescription String?
+  orderProductMap    OrderProductMap[]
+}
+
+model OrderProductMap {
+  id        Int      @id @default(autoincrement())
+  orderId   Int
+  productId Int
+  Orders    Orders   @relation(fields: [orderId], references: [id])
+  Products  Products @relation(fields: [productId], references: [id])
+
+  @@unique([productId, orderId])
+}
