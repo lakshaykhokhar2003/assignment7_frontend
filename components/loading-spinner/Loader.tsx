@@ -5,9 +5,16 @@ import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 
 const Loader: React.FC = () => {
-    const [percentage, setPercentage] = useState(0);
+    const [percentage, setPercentage] = useState<number>(0);
+    const [isClient, setIsClient] = useState<boolean>(false);
 
     useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isClient) return;
+
         document.body.style.overflow = "hidden";
 
         const interval = setInterval(() => {
@@ -18,7 +25,9 @@ const Loader: React.FC = () => {
             clearInterval(interval);
             document.body.style.overflow = "auto";
         };
-    }, []);
+    }, [isClient]);
+
+    if (!isClient) return null
 
     const loadingRoot = document.getElementById("loading-root");
 

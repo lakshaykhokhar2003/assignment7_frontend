@@ -1,7 +1,7 @@
 import {NextResponse} from "next/server";
 import {prisma} from "@/db";
 
-export async function GET(_: Request, context: { params: { id: string } }) {
+export async function GET(_: Request, context: { params: Promise<{ id: string }> }) {
     try {
         const {id} = await context.params;
 
@@ -25,7 +25,7 @@ export async function GET(_: Request, context: { params: { id: string } }) {
     }
 }
 
-export async function PUT(req: Request, context: { params: { id: string } }) {
+export async function PUT(req: Request, context: { params: Promise<{ id: string }> }) {
     const { id } = await context.params;
 
     try {
@@ -59,7 +59,7 @@ export async function PUT(req: Request, context: { params: { id: string } }) {
 
 
 
-export async function DELETE(_: Request, context: { params: { id: string } }) {
+export async function DELETE(_: Request, context: { params: Promise<{ id: string }> }) {
     try {
         const {id} = await context.params
 
