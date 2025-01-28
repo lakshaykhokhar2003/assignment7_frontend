@@ -9,6 +9,9 @@ import Loader from "@/components/loading-spinner/Loader";
 import {orderProductMap} from "@/types";
 import {useParams} from "next/navigation";
 import EditOrderForm from "@/components/orders/update-form/EditForm";
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
+import {ArrowLeft} from "lucide-react";
 
 
 const Page = () => {
@@ -40,6 +43,13 @@ const Page = () => {
         className="flex justify-center items-center min-h-screen bg-gray-100 p-4"
     >
         <Card className="w-full max-w-2xl shadow-lg rounded-2xl">
+            <div className="absolute top-4 left-4">
+                <Link href="/">
+                    <Button className="text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">
+                        <ArrowLeft size={18}/> Back Home
+                    </Button>
+                </Link>
+            </div>
             <CardHeader className="text-center">
                 <CardTitle className="text-xl font-bold">Edit Order</CardTitle>
             </CardHeader>
@@ -49,7 +59,7 @@ const Page = () => {
         </Card>
     </motion.div>
 
-);
+    );
 
 }
 export default Page
