@@ -10,7 +10,7 @@ screenshots of the application.
 ## 🚀 Features
 
 - **CRUD Operations**: Create, Read, Update, and Delete orders seamlessly.
-- **Modern UI**: Built with **Tailwind CSS** and **Radix UI** for a sleek and responsive design.
+- **Modern UI**: Built with **Tailwind CSS** and **ShadCN UI** for a clean design.
 - **State Management**: Utilizes **React Query** for efficient data fetching and caching.
 - **Form Handling**: Powered by **React Hook Form** and **Zod** for robust form validation.
 - **Animations**: Enhanced user experience with **Framer Motion** animations.
@@ -31,7 +31,7 @@ screenshots of the application.
 - **React Query**: For data fetching and state management.
 - **React Hook Form + Zod**: For form handling and validation.
 - **Tailwind CSS**: For styling and responsive design.
-- **Radix UI**: For accessible and customizable UI components.
+- **ShadCN UI**: For accessible and customizable UI components.
 - **Framer Motion**: For animations and transitions.
 - **Sonner**: For toast notifications.
 
