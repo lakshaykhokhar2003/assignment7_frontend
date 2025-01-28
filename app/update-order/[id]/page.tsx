@@ -9,9 +9,6 @@ import Loader from "@/components/loading-spinner/Loader";
 import {orderProductMap} from "@/types";
 import {useParams} from "next/navigation";
 import EditOrderForm from "@/components/orders/update-form/EditForm";
-import {Button} from "@/components/ui/button";
-import Link from "next/link";
-import {ArrowLeft} from "lucide-react";
 
 
 const Page = () => {
@@ -36,30 +33,23 @@ const Page = () => {
     const items = data?.orderProductMap?.map((item: orderProductMap) => item.productId) ?? [];
 
     return (
-        <motion.div
-            initial={{opacity: 0, y: 20}}
-            animate={{opacity: 1, y: 0}}
-            exit={{opacity: 0, y: 20}}
-            className="flex justify-center items-center min-h-screen bg-gray-100 p-4"
-        >
-            <div className="absolute top-4 left-4">
-              <Link href="/">
-                  <Button className="text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">
-                      <ArrowLeft size={18}/> Back Home
-                  </Button>
-              </Link>
-            </div>
-            <Card className="w-full max-w-2xl shadow-lg rounded-2xl">
-                <CardHeader className="text-center">
-                    <CardTitle className="text-xl font-bold">Edit Order</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <EditOrderForm description={data.orderDescription} items={items}/>
-                </CardContent>
-            </Card>
-        </motion.div>
+    <motion.div
+        initial={{opacity: 0, y: 20}}
+        animate={{opacity: 1, y: 0}}
+        exit={{opacity: 0, y: 20}}
+        className="flex justify-center items-center min-h-screen bg-gray-100 p-4"
+    >
+        <Card className="w-full max-w-2xl shadow-lg rounded-2xl">
+            <CardHeader className="text-center">
+                <CardTitle className="text-xl font-bold">Edit Order</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <EditOrderForm description={data.orderDescription} items={items}/>
+            </CardContent>
+        </Card>
+    </motion.div>
 
-    );
+);
 
 }
 export default Page
