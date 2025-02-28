@@ -66,13 +66,13 @@ export const columns: ColumnDef<Order>[] = [
             return (
                 <div className="flex gap-2">
                     <TooltipContext text="Edit">
-                        <Link href={`/update-order/${row.original.orderId}`}>
+                        <Link href={`/update-order/${row.original.orderId}`} aria-label="Edit order">
                             <Pen size={18} className="text-black cursor-pointer"/>
                         </Link>
                     </TooltipContext>
                     <TooltipContext text="Delete">
                         <DeleteDialog product={row.original}>
-                            <Trash size={18} className="text-red-600 cursor-pointer"/>
+                            <Trash size={18} className="text-red-600 cursor-pointer" aria-label="Delete order"/>
                         </DeleteDialog>
                     </TooltipContext>
                 </div>
